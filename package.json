@@ -3,12 +3,20 @@
 	"version": "1.0.0",
 	"description": "max js utils",
 	"author": "max (xdjccemail@163.com)",
-	"main": "index.js",
 	"license": "MIT",
+	"main": "index.js",
+	"files": [
+		"index.js",
+		"src"
+	],
+	"private": false,
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"keywords": [],
+	"keywords": [
+		"max-js-utils",
+		"shallCopy"
+	],
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org/"
 	},
@@ -16,9 +24,5 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/XDJcc/max-js-utils.git"
-	},
-	"dependencies": {
-		"husky": "^9.1.6",
-		"jest": "^29.7.0"
 	}
 }

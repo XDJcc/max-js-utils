@@ -12,6 +12,11 @@
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org/"
 	},
+	"homepage": "https://github.com/XDJcc/max-js-utils.git",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/XDJcc/max-js-utils.git"
+	},
 	"dependencies": {
 		"husky": "^9.1.6",
 		"jest": "^29.7.0"

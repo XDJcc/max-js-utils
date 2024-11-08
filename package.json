@@ -5,12 +5,10 @@
   "author": "max (xdjccemail@163.com)",
   "license": "MIT",
   "type": "module",
-  "main": "dist/index.js",
-  "exports": {
-    ".": "./dist/index.js"
-  },
+  "main": "index.js",
   "files": [
-    "dist",
+    "index.js",
+    "src",
     "README.md",
     "LICENSE"
   ],
@@ -19,9 +17,6 @@
     "test": "jest",
     "watch": "jest --watchAll",
     "coverage": "jest --coverage",
-    "build": "babel src -d dist",
-    "prepublishOnly": "npm run build",
-    "readme": "npm run build && echo 'Documentation generated!'"
   },
   "keywords": [
     "mUtils",

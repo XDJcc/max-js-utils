@@ -1,0 +1,9 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+#禁用所有的 Husky 钩子，常用于 CI 环境。
+#export HUSKY=0
+
+
+#Husky 会输出调试信息，帮助排查钩子执行的详细过程。
+#export HUSKY_DEBUG=1

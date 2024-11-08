@@ -16,7 +16,9 @@
   "scripts": {
     "test": "jest",
     "watch": "jest --watchAll",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "prepublishOnly": "./prepublishOnly.sh",
+    "postpublish": "./postPublishScript.sh"
   },
   "keywords": [
     "mUtils",

@@ -1,6 +1,6 @@
 {
   "name": "max-js-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "max-js-utils 是一个包含常用工具函数的 JavaScript 库，提供了浅克隆、深克隆、随机数生成等功能。",
   "author": "max (xdjccemail@163.com)",
   "license": "MIT",

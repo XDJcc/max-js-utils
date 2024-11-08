@@ -8,7 +8,7 @@ export default defineConfig({
     build: {
         lib: {
             entry: resolve(__dirname,'./packages/index.js') ,
-            name:'max-js-utils-dist'
+            name:'max-js-utils'
         },
         target: ['esnext'],//设置最终构建的浏览器兼容目标
         outDir: 'dist',

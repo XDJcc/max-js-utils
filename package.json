@@ -5,10 +5,12 @@
   "author": "max (xdjccemail@163.com)",
   "license": "MIT",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
   "files": [
-    "index.js",
-    "src",
+    "dist",
     "README.md",
     "LICENSE"
   ],
@@ -17,6 +19,7 @@
     "test": "jest",
     "watch": "jest --watchAll",
     "coverage": "jest --coverage",
+    "build": "babel src/index.js --out-dir dist --copy-files",
     "prepublishOnly": "./prepublishOnly.sh",
     "postpublish": "./postPublishScript.sh"
   },

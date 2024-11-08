@@ -26,6 +26,7 @@
     "coverage": "jest --coverage",
     "build_publish": "babel packages/index.js --out-dir dist --copy-files",
     "prepublishOnly": "./prepublishOnly.sh",
+    "publishBag": "npm version patch && npm publish",
     "postpublish": "./postPublishScript.sh"
   },
   "keywords": [

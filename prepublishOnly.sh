@@ -4,7 +4,7 @@
 echo "正在执行发布前脚本..."
 
 # 执行打包（比如使用 Babel）
-#npm run build
+npm run build_publish
 
 # 如果一切成功，继续执行 npm publish
 echo "准备好发布了!"

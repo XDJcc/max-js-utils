@@ -7,7 +7,9 @@
   "type": "module",
   "main": "dist/index.js",
   "exports": {
-    ".": "./dist/index.js"
+    "import": "./dist/max-js-utils.js",
+    "require": "./dist/max-js-utils.umd.cjs",
+    ".": "./dist/max-js-utils.js"
   },
   "files": [
     "dist",
@@ -16,10 +18,13 @@
   ],
   "private": false,
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "test": "jest",
     "watch": "jest --watchAll",
     "coverage": "jest --coverage",
-    "build": "babel src/index.js --out-dir dist --copy-files",
+    "build_publish": "babel packages/index.js --out-dir dist --copy-files",
     "prepublishOnly": "./prepublishOnly.sh",
     "postpublish": "./postPublishScript.sh"
   },
@@ -45,7 +50,12 @@
   "engines": {
     "node": ">=12.0.0"
   },
+  "dependencies": {
+    "vue": "^3.5.12"
+  },
   "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.4",
+    "vite": "^5.4.10",
     "@babel/cli": "^7.25.9",
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",

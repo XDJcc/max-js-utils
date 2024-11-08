@@ -1,4 +1,4 @@
-import { deepClone, deepCloneFunction } from '../index.js';
+import { deepClone, deepCloneFunction } from '../deepClone.js';
 
 describe('deepClone 函数', () => {
     test('应该深度克隆一个简单的对象', () => {

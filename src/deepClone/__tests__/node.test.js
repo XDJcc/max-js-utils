@@ -1,4 +1,4 @@
-import { deepCloneFunction, deepClone } from "../index";
+import { deepCloneFunction, deepClone } from "../deepClone.js";
 
 // 创建一个复杂的原始对象，包含不同数据类型：对象、数组、函数、Date、RegExp、Map 和 Set
 const original = {

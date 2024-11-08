@@ -1,7 +1,7 @@
 // 导入工具函数
-import { shallCopy } from './src/shallCopy.js';
-import { deepClone, deepCloneFunction } from './src/deepClone.js';
-import { randomString, randomRange, randomNum } from './src/random/random.js';
+import {shallCopy} from './src/shallCopy/shallCopy.js';
+import {deepClone, deepCloneFunction} from './src/deepClone/deepClone.js';
+import {randomString, randomRange, randomNum} from './src/random/random.js';
 
 /**
  * @file shallCopy.js
@@ -22,7 +22,7 @@ const mUtils = {
 
 // 导出所有工具函数（如果需要单独导入某个函数）
 export * from './src/shallCopy/shallCopy.js';
-export * from './src/deepClone';
+export * from './src/deepClone/deepClone.js';
 export * from './src/random/random.js';
 
 /**

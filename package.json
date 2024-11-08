@@ -1,36 +1,40 @@
 {
-	"name": "max-js-utils",
-	"version": "1.0.1",
-	"description": "max js utils",
-	"author": "max (xdjccemail@163.com)",
-	"license": "MIT",
-	"main": "index.js",
-	"files": [
-		"index.js",
-		"src"
-	],
-	"private": false,
-	"scripts": {
-		"test": "jest",
-		"watch": "jest --watchAll",
-		"coverage": "jest --coverage"
-	},
-	"keywords": [
-		"max-js-utils",
-		"shallCopy"
-	],
-	"publishConfig": {
-		"registry": "https://registry.npmjs.org/"
-	},
-	"homepage": "https://github.com/XDJcc/max-js-utils.git",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/XDJcc/max-js-utils.git"
-	},
-	"dependencies": {
-		"jest": "^26.0.1"
-	},
-	"devDependencies": {
-		"husky": "7.0.2"
-	}
+  "name": "max-js-utils",
+  "version": "1.0.1",
+  "description": "max js utils",
+  "author": "max (xdjccemail@163.com)",
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "src"
+  ],
+  "private": false,
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watchAll",
+    "coverage": "jest --coverage"
+  },
+  "keywords": [
+    "max-js-utils",
+    "shallCopy",
+    "deepClone",
+    "randomString",
+    "randomRange",
+    "randomNum"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "homepage": "https://github.com/XDJcc/max-js-utils.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XDJcc/max-js-utils.git"
+  },
+  "dependencies": {
+    "jest": "^26.0.1"
+  },
+  "devDependencies": {
+    "husky": "7.0.2"
+  }
 }

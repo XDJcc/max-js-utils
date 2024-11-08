@@ -1,4 +1,5 @@
-const { shallCopy } = require("../index");
+import {shallCopy} from "../shallCopy.js";
+
 let obj = {
     test: {
         espend: {

@@ -1,43 +1,51 @@
-// import deepClone from './index';
-const {deepClone, deepCloneFunction} = require('../index');
+import { deepCloneFunction, deepClone } from "../index";
 
+// 创建一个复杂的原始对象，包含不同数据类型：对象、数组、函数、Date、RegExp、Map 和 Set
 const original = {
     a: 1,
     b: {
         c: 2,
-        func (x) {
+        // 在对象中包含一个函数，使用闭包引用外部变量
+        func(x) {
             return x + this.c;
         }
     },
-    func (a, b) {
+    // 顶层对象的函数
+    func(a, b) {
         return a + b;
     },
+    // 日期对象
     date: new Date('2020-01-01'),
+    // 正则表达式对象
     regex: /abc/g,
+    // Map 对象
     map: new Map([['key1', 1], ['key2', 2]]),
+    // Set 对象
     set: new Set([1, 2, 3])
 };
 
 // 深度克隆原始对象
 const cloned = deepClone(original);
 
-// 验证深度克隆的内容
-console.log('1 -->',cloned.a); // 输出 1
-console.log('2 -->',cloned.b.c); // 输出 2
-console.log('true -->',cloned.date instanceof Date); // 输出 true
-console.log('true -->',cloned.regex instanceof RegExp); // 输出 true
-console.log('true -->',cloned.map instanceof Map); // 输出 true
-console.log('true -->',cloned.set instanceof Set); // 输出 true
+// 验证克隆后的对象内容是否与原对象相同，且所有嵌套结构都被正确克隆
+console.log('1 -->', cloned.a); // 输出 1，原对象的属性
+console.log('2 -->', cloned.b.c); // 输出 2，嵌套对象的属性
+console.log('true -->', cloned.date instanceof Date); // 输出 true，确保 Date 对象被正确克隆
+console.log('true -->', cloned.regex instanceof RegExp); // 输出 true，确保 RegExp 对象被正确克隆
+console.log('true -->', cloned.map instanceof Map); // 输出 true，确保 Map 对象被正确克隆
+console.log('true -->', cloned.set instanceof Set); // 输出 true，确保 Set 对象被正确克隆
 
-// 验证 Map 和 Set 的克隆
-console.log('1 -->',cloned.map.get('key1')); // 输出 1
-console.log('true -->',cloned.set.has(1)); // 输出 true
+// 验证 Map 和 Set 对象的深度克隆，确保它们的键值对和元素没有丢失
+console.log('1 -->', cloned.map.get('key1')); // 输出 1，克隆后的 Map 中的值
+console.log('true -->', cloned.set.has(1)); // 输出 true，确保克隆后的 Set 中包含元素
 
-// 测试函数的克隆
-console.log('3 -->',cloned.func(1, 2)); // 输出 3
-console.log('6 -->',cloned.b.func(4)); // 输出 6，闭包变量 c 在克隆后的对象中也有效
+// 测试顶层函数的深度克隆
+console.log('3 -->', cloned.func(1, 2)); // 输出 3，验证克隆后的顶层函数是否正常工作
+console.log('6 -->', cloned.b.func(4)); // 输出 6，验证克隆后的嵌套函数是否正确使用闭包变量 c
 
-// 测试函数的克隆
+// 测试函数的深度克隆
 const originalFunc = function(a) { return a + this.x; };
 const clonedFunc = deepCloneFunction(originalFunc);
-console.log('4 -->',clonedFunc.call({ x: 2 }, 2)); // 输出 4，保证闭包/上下文正确
+
+// 调用克隆后的函数，验证它能正确使用闭包和上下文
+console.log('4 -->', clonedFunc.call({ x: 2 }, 2)); // 输出 4，保证闭包/上下文正确

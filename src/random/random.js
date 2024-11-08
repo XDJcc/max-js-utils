@@ -1,5 +1,5 @@
 /**
- * @file randomUtil.js
+ * @file random.js
  * @description 工具类，提供生成随机字符串、指定范围内随机数和从数组中随机选取元素的功能。
  * @author max.xie
  * @date 2024-11-08
@@ -14,7 +14,7 @@
  * // 返回一个包含10个字符的随机字符串
  * randomString(10);
  */
-exports.randomString = (len) => {
+const randomString = (len) => {
     let chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz123456789';
     let strLen = chars.length;
     let randomStr = '';
@@ -34,7 +34,7 @@ exports.randomString = (len) => {
  * // 返回一个介于5和15之间的随机整数
  * randomRange(5, 15);
  */
-exports.randomRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randomRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 /**
  * @function randomNum
@@ -45,4 +45,8 @@ exports.randomRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) 
  * // 从数组中随机选取一个元素
  * randomNum([1, 2, 3, 4, 5]);
  */
-exports.randomNum = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const randomNum = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+
+
+export {randomNum, randomString, randomRange};

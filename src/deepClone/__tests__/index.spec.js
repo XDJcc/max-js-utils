@@ -1,108 +1,108 @@
-const { deepClone, deepCloneFunction } = require('./index');  // 根据实际路径修改
+import { deepClone, deepCloneFunction } from '../index.js';
 
-describe('deepClone 函数测试', () => {
-    test('应正确克隆基本数据类型', () => {
-        const num = 42;
-        const str = 'Hello, world';
-        const bool = true;
-        const nil = null;
-
-        expect(deepClone(num)).toBe(num);
-        expect(deepClone(str)).toBe(str);
-        expect(deepClone(bool)).toBe(bool);
-        expect(deepClone(nil)).toBe(null);
-    });
-
-    test('应正确克隆 Date 对象', () => {
-        const date = new Date('2020-01-01');
-        const clonedDate = deepClone(date);
-
-        expect(clonedDate instanceof Date).toBe(true);
-        expect(clonedDate.getTime()).toBe(date.getTime());
-        expect(clonedDate).not.toBe(date);  // 确保返回的是新实例
-    });
-
-    test('应正确克隆 RegExp 对象', () => {
-        const regex = /abc/g;
-        const clonedRegex = deepClone(regex);
-
-        expect(clonedRegex instanceof RegExp).toBe(true);
-        expect(clonedRegex.source).toBe(regex.source);
-        expect(clonedRegex.flags).toBe(regex.flags);
-        expect(clonedRegex).not.toBe(regex);  // 确保返回的是新实例
-    });
-
-    test('应正确克隆数组', () => {
-        const arr = [1, 2, { a: 1 }];
-        const clonedArr = deepClone(arr);
-
-        expect(clonedArr).toEqual(arr);
-        expect(clonedArr).not.toBe(arr);  // 确保返回的是新数组实例
-        expect(clonedArr[2]).not.toBe(arr[2]);  // 确保数组中的对象被克隆
-    });
-
-    test('应正确克隆对象', () => {
+describe('deepClone 函数', () => {
+    test('应该深度克隆一个简单的对象', () => {
         const obj = { a: 1, b: { c: 2 } };
         const clonedObj = deepClone(obj);
 
+        // 检查克隆对象的值是否与原对象相等
         expect(clonedObj).toEqual(obj);
-        expect(clonedObj).not.toBe(obj);  // 确保返回的是新对象实例
-        expect(clonedObj.b).not.toBe(obj.b);  // 确保嵌套对象被克隆
+        // 确保克隆后的对象与原对象不是同一个引用
+        expect(clonedObj).not.toBe(obj);
+        // 确保深度克隆：嵌套对象 'b' 不应该与原对象中的 'b' 引用相同
+        expect(clonedObj.b).not.toBe(obj.b);
     });
 
-    test('应正确克隆 Map 对象', () => {
-        const map = new Map([['key1', 1], ['key2', 2]]);
-        const clonedMap = deepClone(map);
+    test('应该深度克隆一个 Map 对象', () => {
+        const originalMap = new Map([['key1', 'value1'], ['key2', 'value2']]);
+        const clonedMap = deepClone(originalMap);
 
-        expect(clonedMap instanceof Map).toBe(true);
-        expect(clonedMap.get('key1')).toBe(1);
-        expect(clonedMap).not.toBe(map);  // 确保返回的是新 Map 实例
-        expect(clonedMap.get('key1')).toBe(map.get('key1'));  // 确保键值对被复制
+        // 检查克隆的 Map 是否与原 Map 相等
+        expect(clonedMap).toEqual(originalMap);
+        // 确保克隆后的 Map 不是同一个实例
+        expect(clonedMap).not.toBe(originalMap);
+        // 确保深度克隆：克隆后的 Map 键和值的引用与原 Map 不同
+        expect(clonedMap.get('key1')).toBe('value1');
+        expect(clonedMap.get('key2')).toBe('value2');
     });
 
-    test('应正确克隆 Set 对象', () => {
-        const set = new Set([1, 2, 3]);
-        const clonedSet = deepClone(set);
+    test('应该深度克隆一个 Set 对象', () => {
+        const originalSet = new Set([1, 2, 3]);
+        const clonedSet = deepClone(originalSet);
 
-        expect(clonedSet instanceof Set).toBe(true);
-        expect(clonedSet.has(1)).toBe(true);
-        expect(clonedSet).not.toBe(set);  // 确保返回的是新 Set 实例
+        // 检查克隆的 Set 是否与原 Set 相等
+        expect(clonedSet).toEqual(originalSet);
+        // 确保克隆后的 Set 不是同一个实例
+        expect(clonedSet).not.toBe(originalSet);
+    });
+
+    test('应该深度克隆一个数组', () => {
+        const arr = [1, 2, { a: 1 }];
+        const clonedArr = deepClone(arr);
+
+        // 检查克隆的数组是否与原数组相等
+        expect(clonedArr).toEqual(arr);
+        // 确保克隆后的数组不是同一个实例
+        expect(clonedArr).not.toBe(arr);
+        // 确保深度克隆：嵌套对象 'a' 不应该与原数组中的对象引用相同
+        expect(clonedArr[2]).not.toBe(arr[2]);
+    });
+
+    test('应该处理原始值（非对象类型）', () => {
+        // 对于原始值，克隆后的值应与原值相同
+        expect(deepClone(42)).toBe(42);
+        expect(deepClone('test')).toBe('test');
+        expect(deepClone(null)).toBeNull();
+        expect(deepClone(undefined)).toBeUndefined();
+    });
+
+    test('应该处理 Date 对象', () => {
+        const date = new Date('2024-01-01');
+        const clonedDate = deepClone(date);
+
+        // 检查克隆的 Date 是否与原 Date 相等
+        expect(clonedDate).toEqual(date);
+        // 确保克隆后的 Date 不是同一个实例
+        expect(clonedDate).not.toBe(date);
+    });
+
+    test('应该处理 RegExp 对象', () => {
+        const regex = /abc/i;
+        const clonedRegex = deepClone(regex);
+
+        // 检查克隆的 RegExp 是否与原 RegExp 相等
+        expect(clonedRegex).toEqual(regex);
+        // 确保克隆后的 RegExp 不是同一个实例
+        expect(clonedRegex).not.toBe(regex);
     });
 });
 
-describe('deepCloneFunction 函数测试', () => {
-    test('应正确克隆一个带闭包的函数', () => {
-        const obj = { a: 1 };
-        const originalFunc = function(x) { return x + this.a; };
+describe('deepCloneFunction 函数', () => {
+    test('应该深度克隆一个函数', () => {
+        const func = function(a) { return a + this.x; };
+        const clonedFunc = deepCloneFunction(func);
 
-        const clonedFunc = deepCloneFunction(originalFunc);
-
-        expect(clonedFunc(2).call(obj)).toBe(3);  // 确保闭包能正确访问 `this.a`
+        // 检查克隆后的函数是否正常执行
+        expect(clonedFunc.call({ x: 2 }, 3)).toBe(5); // 传入上下文，x=2，a=3，期望返回 5
     });
 
-    test('应正确克隆带有多个参数的函数', () => {
-        const originalFunc = function(a, b) { return a + b; };
+    test('应该克隆一个带闭包的函数', () => {
+        const x = 1;
+        const func = function() { return x; };
+        const clonedFunc = deepCloneFunction(func);
 
-        const clonedFunc = deepCloneFunction(originalFunc);
-
-        expect(clonedFunc(2, 3)).toBe(5);
+        // 检查克隆后的函数是否正确访问闭包中的变量
+        expect(clonedFunc()).toBe(1);
     });
 
-    test('应正确处理带有上下文的函数', () => {
-        const context = { x: 2 };
-        const originalFunc = function(a) { return a + this.x; };
+    test('应该保持原函数的原型链', () => {
+        function Person(name) {
+            this.name = name;
+        }
+        Person.prototype.greet = function() { return `Hello, ${this.name}`; };
+        const clonedPerson = deepCloneFunction(Person);
 
-        const clonedFunc = deepCloneFunction(originalFunc);
-
-        expect(clonedFunc.call(context, 2)).toBe(4);  // 确保 `this.x` 被正确引用
-    });
-
-    test('应保证不修改原始函数', () => {
-        const originalFunc = function(a, b) { return a + b; };
-
-        const clonedFunc = deepCloneFunction(originalFunc);
-        clonedFunc(3, 4);
-
-        expect(originalFunc(1, 2)).toBe(3);  // 确保原始函数不被修改
+        const p = new clonedPerson('John');
+        expect(p.greet()).toBe('Hello, John');
     });
 });

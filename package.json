@@ -1,27 +1,38 @@
 {
   "name": "max-js-utils",
-  "version": "1.0.1",
-  "description": "max js utils",
+  "version": "1.0.2",
+  "description": "max-js-utils 是一个包含常用工具函数的 JavaScript 库，提供了浅克隆、深克隆、随机数生成等功能。",
   "author": "max (xdjccemail@163.com)",
   "license": "MIT",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
   "files": [
-    "index.js",
-    "src"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "private": false,
   "scripts": {
     "test": "jest",
     "watch": "jest --watchAll",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "build": "babel src -d dist",
+    "prepublishOnly": "npm run build",
+    "readme": "npm run build && echo 'Documentation generated!'"
   },
   "keywords": [
-    "max-js-utils",
+    "mUtils",
+    "utils",
+    "JavaScript utilities",
     "shallCopy",
     "deepClone",
     "randomString",
     "randomRange",
-    "randomNum"
+    "randomNum",
+    "js-utils"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -31,10 +42,18 @@
     "type": "git",
     "url": "git+https://github.com/XDJcc/max-js-utils.git"
   },
-  "dependencies": {
-    "jest": "^26.0.1"
+  "engines": {
+    "node": ">=12.0.0"
   },
   "devDependencies": {
-    "husky": "7.0.2"
+    "@babel/preset-env": "^7.26.0",
+    "babel-jest": "^29.7.0",
+    "husky": "^7.0.4",
+    "jest": "^29.7.0"
+  },
+  "dependencies": {
+  },
+  "babel": {
+    "presets": ["@babel/preset-env"]
   }
 }

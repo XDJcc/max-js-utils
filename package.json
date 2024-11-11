@@ -9,7 +9,7 @@
   "exports": {
     "import": "./dist/max-js-utils.js",
     "require": "./dist/max-js-utils.umd.cjs",
-    ".": "./dist/max-js-utils.js"
+    "*": "./dist/max-js-utils.js"
   },
   "files": [
     "dist",

@@ -1,17 +1,17 @@
-// 导入工具函数
-import {shallCopy} from './shallCopy/shallCopy.js';
-import {deepClone, deepCloneFunction} from './deepClone/deepClone.js';
-import {randomString, randomRange, randomNum} from './random/random.js';
-
 /**
- * @file shallCopy.js
+ * @file
  * @description 自定义工具包，提供常用的工具函数，涵盖浅拷贝、深拷贝、随机数等功能。
  * @author max.xie
  * @date 2024-11-08
  */
 
+// 导入工具函数
+import {shallCopy} from './shallCopy/shallCopy.js';
+import {deepClone, deepCloneFunction} from './deepClone/deepClone.js';
+import {randomString, randomRange, randomNum} from './random/random.js';
+
 // 打包所有工具函数为一个对象，便于管理和导出
-const mUtils = {
+export const mUtils = {
     shallCopy,
     deepClone,
     deepCloneFunction,

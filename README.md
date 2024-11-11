@@ -89,7 +89,26 @@ console.log(randomRange(5, 15));
 // 使用数组随机元素函数
 console.log(randomNum([1, 2, 3, 4, 5]));
 ```
+## 4. 自定义挂载名称
 
+```javascript
+import {mUtils} from "mUtils";
+
+const install = (app) => {
+    // 判断是否为 Vue 3
+    const isVue3 = !!app?.config?.globalProperties;
+
+    // 在 Vue 3 中挂载工具函数
+    if (isVue3) {
+        app.config.globalProperties.$yourUtilsName = mUtils;
+    } else {
+        // 在 Vue 2 中挂载工具函数
+        app.prototype.$yourUtilsName = mUtils;
+    }
+}
+
+app.use({install})
+```
 
 # Contact me(联系我)
 

@@ -5,7 +5,7 @@
   "author": "max (xdjccemail@163.com)",
   "license": "MIT",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "./dist/max-js-utils.js",
   "exports": {
     "import": "./dist/max-js-utils.js",
     "require": "./dist/max-js-utils.umd.cjs",

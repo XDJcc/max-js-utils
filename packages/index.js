@@ -11,7 +11,7 @@ import {deepClone, deepCloneFunction} from './deepClone/deepClone.js';
 import {randomString, randomRange, randomNum} from './random/random.js';
 
 // 打包所有工具函数为一个对象，便于管理和导出
-export const mUtils = {
+export const allTools = {
     shallCopy,
     deepClone,
     deepCloneFunction,

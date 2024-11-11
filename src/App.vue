@@ -1,11 +1,11 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-import {mUtils} from "../packages/index.js";
+import {allTools} from "../packages/index.js";
 </script>
 
 <template>
   <div>
-    {{ mUtils }}
+    {{ allTools }}
     <a href="https://vite.dev" target="_blank">
       <img alt="Vite logo" class="logo" src="/vite.svg"/>
     </a>

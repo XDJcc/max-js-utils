@@ -92,7 +92,7 @@ console.log(randomNum([1, 2, 3, 4, 5]));
 ## 4. 自定义挂载名称
 
 ```javascript
-import {mUtils} from "mUtils";
+import {allTools} from "mUtils";
 
 const install = (app) => {
     // 判断是否为 Vue 3
@@ -100,10 +100,10 @@ const install = (app) => {
 
     // 在 Vue 3 中挂载工具函数
     if (isVue3) {
-        app.config.globalProperties.$yourUtilsName = mUtils;
+        app.config.globalProperties.$yourUtilsName = allTools;
     } else {
         // 在 Vue 2 中挂载工具函数
-        app.prototype.$yourUtilsName = mUtils;
+        app.prototype.$yourUtilsName = allTools;
     }
 }
 

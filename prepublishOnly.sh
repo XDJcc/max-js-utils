@@ -5,9 +5,6 @@ echo "正在执行发布前脚本..."
 
 # 执行打包（比如使用 Babel）
 
-  # babel 编译（弃用）
-  #npm run build_publish
-
 #vite编译
 npm run build
 
